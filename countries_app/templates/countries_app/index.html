@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Search</title>
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/premium-vector/garlands-flags-different-countries-europe_103588-336.jpg?w=1800'); /* New background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating of the image */
+            color: #333; /* Darker text color */
+            height: 100vh; /* Full height to center vertically */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center align all children */
+            justify-content: center; /* Center content vertically */
+            padding: 20px; /* Padding around the content */
+        }
+        .container {
+            background-color: #ffffff; /* Completely opaque white background */
+            border-radius: 8px; /* Rounded corners for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            max-width: 800px; /* Max width for container */
+            padding: 20px; /* Padding inside the container */
+            text-align: center; /* Center align text inside container */
+        }
+        h1 {
+            color: #d5006d; /* Dark pink color for heading */
+            margin-bottom: 20px; /* Space below heading */
+            font-family: 'Montserrat', sans-serif; /* Fancy font */
+            font-size: 2.5em; /* Adjust font size for emphasis */
+            font-weight: 700; /* Bold weight */
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px; /* Increased padding for better touch targets */
+            border: 2px solid #d5006d; /* Dark pink border */
+            border-radius: 4px; /* Rounded corners for input */
+            transition: border-color 0.3s; /* Smooth border color transition */
+        }
+        input[type="text"]:focus {
+            border-color: #c40057; /* Darker pink on focus */
+            outline: none; /* Remove default outline */
+        }
+        input[type="submit"] {
+            padding: 10px 20px; /* Increased padding */
+            border: none; /* Remove default border */
+            border-radius: 4px; /* Rounded corners */
+            background-color: #d5006d; /* Dark pink button color */
+            color: white; /* Text color */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+        input[type="submit"]:hover {
+            background-color: #c40057; /* Darker pink on hover */
+        }
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+            margin-top: 20px; /* Space above the list */
+            width: 100%; /* Full width for list items */
+        }
+        li {
+            background-color: #ffffff; /* White background for list items */
+            border: 1px solid #dcdcdc; /* Light gray border */
+            padding: 10px; /* Padding for list items */
+            border-radius: 4px; /* Rounded corners for list items */
+            margin-bottom: 10px; /* Space between list items */
+            transition: box-shadow 0.3s; /* Smooth transition for shadow */
+            text-align: center; /* Center align text in list items */
+        }
+        li:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+        .no-countries {
+            font-style: italic; /* Italic text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Country Search</h1>
+        <form method="get">
+            <input type="text" name="q" value="{{ query }}" placeholder="Search for a country">
+            <input type="submit" value="Search">
+        </form>
+        <ul>
+            {% for country in countries %}
+                <li>{{ country.name }}</li>
+            {% empty %}
+                <li class="no-countries">No countries found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
