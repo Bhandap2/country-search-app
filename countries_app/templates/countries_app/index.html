@@ -25,8 +25,11 @@
             border-radius: 8px; /* Rounded corners for the container */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
             max-width: 800px; /* Max width for container */
+            width: 100%; /* Make the container take the full width */
             padding: 20px; /* Padding inside the container */
             text-align: center; /* Center align text inside container */
+            max-height: 90vh; /* Limit the height to avoid overflow of content */
+            overflow: auto; /* Allow scrolling for overflow content */
         }
         h1 {
             color: #d5006d; /* Dark pink color for heading */
@@ -66,6 +69,8 @@
             padding: 0;
             margin-top: 20px; /* Space above the list */
             width: 100%; /* Full width for list items */
+            max-height: 300px; /* Limit the height of the list */
+            overflow-y: auto; /* Scroll vertically if the list is too long */
         }
         li {
             background-color: #ffffff; /* White background for list items */
